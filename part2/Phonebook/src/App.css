@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+  width: 50%;
+  border: 1px solid #73AD21;
+  background-color: #32746A;
+  padding: 10px;
+}
+
+/* create delete task button */
+.add-btn {
+  float: right;
+  background-color: red;
+  color: #ffffff;
+}
