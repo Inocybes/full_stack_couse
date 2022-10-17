@@ -7,15 +7,25 @@ const App = () => {
 
   const addNewName = (event) => {
     event.preventDefault();
-    // console.log("button clicked", event.target);
-    const contacts = {name: newName}
-    setPersons(persons.concat(contacts))
+    const onePerson = persons.find(
+      (person) => person.name.toLowerCase() === newName.toLowerCase()
+    );
+
+    console.log(onePerson);
+    if (onePerson) {
+      alert(`${newName} is already added to phonebook`);
+      setNewName("");
+    } else {
+      const contacts = { name: newName };
+      setPersons(persons.concat(contacts));
+      setNewName("");
+    }
   };
+
   const handleNameChange = (event) => {
-    // console.log("hello", event.target.value);
     setNewName(event.target.value);
   };
-  console.log(persons);
+
   return (
     <div>
       <h2>Phonebook</h2>
@@ -26,7 +36,11 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      <h1>{persons.map(e=> <p>{e.name}</p>)}</h1>
+      <h1>
+        {persons.map((e) => (
+          <p>{e.name}</p>
+        ))}
+      </h1>
     </div>
   );
 };
